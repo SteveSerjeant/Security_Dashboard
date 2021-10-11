@@ -14,7 +14,9 @@
 <br>
 <h1 class="h1">This is the start of the project</h1>
 <br>
-<h1 class="h1">Security Dashboard for Home Users</h1>
+<h2 class="h1">COMP3000 2121/2022</h2>
+<br>
+<h3 class="h1">Security Dashboard for Home Users</h3>
 <!--<div class="container-fluid">-->
 <!--    <h1 class="h1">Responsive Columns</h1>-->
 <!--    <div class="row">-->
