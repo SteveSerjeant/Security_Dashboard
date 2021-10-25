@@ -6,7 +6,8 @@
     -moz-osx-font-smoothing: grayscale;
 }
 body {
-    background-color: #435165;
+    /*background-color: #435165;*/
+    background-color: red;
 }
 .login {
     width: 400px;
@@ -58,3 +59,13 @@ body {
     background-color: #2868c7;
     transition: background-color 0.2s;
 }
+
+/*.h1{*/
+/*    text-align: center;*/
+/*    background-color: azure;*/
+/*}*/
+
+/*#h1{*/
+/*    text-align: center;*/
+/*    background-color: azure;*/
+/*}*/
