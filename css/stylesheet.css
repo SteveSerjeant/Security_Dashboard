@@ -11,7 +11,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 body {
-    background-color: #435165;
+
+    background-color: beige;
+
 }
 .login {
     width: 400px;
