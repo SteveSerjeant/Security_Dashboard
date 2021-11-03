@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/stylesheet.css" type="text/css">
+        <link rel="stylesheet" href="../css/dashboardNavbar.css" type="text/css">
 
 
 </head>
@@ -18,9 +19,9 @@
 <br>
 <h3 class="h1" style="text-align: center">Landing Page</h3>
 
-<nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">BRiMS <button type="button" id="sidebarCollapse" class="btn">Menu</button></span></a>
-</nav>
+<!--<nav class="navbar navbar-dark bg-dark">-->
+<!--    <a class="navbar-brand" href="#">Security Dashboard<button type="button" id="sidebarCollapse" class="btn">Menu</button></span></a>-->
+<!--</nav>-->
 <div   class="wrapper">
     <?php include 'navbar.php'; ?>
     <div class="container">
