@@ -72,3 +72,42 @@ body {
     font-size: 1rem;
     padding: 0;
 }
+
+
+
+
+/*from Global-dashboard*/
+body
+{
+    background-color: #f8f9fa;
+}
+
+.panel
+{
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.header-panel
+{
+    margin-top: 3rem;
+    padding: 1rem;
+    background-color: #4a535b;
+    color: #fff;
+}
+
+.main-panel
+{
+    margin-top: 1rem;
+    background-color: #fff;
+}
+
+.main-panel .heading
+{
+    padding-top: 1rem;
+}
+
+.main-panel .information
+{
+    padding-bottom: 1rem;
+}

@@ -81,14 +81,14 @@ if ( !isset($_POST['username'], $_POST['password']) ) {
 }
 
 // Prepare our SQL statement.
-if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) {
+if ($stmt = $con->prepare('SELECT id, password, userType FROM users WHERE username = ?')) {
     $stmt->bind_param('s', $_POST['username']);
     $stmt->execute();
     // Store the result from prepared statement
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $password);
+        $stmt->bind_result($id, $password, $userType);
         $stmt->fetch();
         if ($_POST['password'] === $password) {
             // Verification success! User has logged-in!
@@ -97,34 +97,36 @@ if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) 
             $_SESSION['name'] = $_POST['username'];
             $_SESSION['id'] = $id;
 //            $userType = blank;
-//            $_SESSION['userType'] = $userType;
+            $_SESSION['userType'] = $userType;
 
 
-            header('Location: landingPageOther.php');
+            switch ($_SESSION["userType"])
+            {
+                case "main":
+                    header('Location: landingPage.php');
+                    break;
+                case "other":
+                    header('Location: landingPageOther.php');
+                    break;
+                    //default for users being mis-authenticated
+                default:
+                    header('Location: logoff.php');
 
-//            switch ($_SESSION["userType"])
-//            {
-//                case "main":
-//                    header('Location: landingPage.php');
-//                    break;
-//                case "other":
-//                    header('Location: landingPageOther.php');
-//                    break;
-//                    //default for users being mis-authenticated
-//                default:
-//                    header('Location: logoff.php');
-//
-//            }
+            }
 
 
 
         } else {
             // Incorrect password
-            echo 'Incorrect username and/or password!';
+            echo 'Go away!';
+            // | Incorrect password
+            header('Location: index.php?err=' . base64_encode("wrong"));
+            die();
         }
     } else {
         // Incorrect username
-        echo 'Incorrect username and/or password!';
+        header('Location: index.php?err=' . base64_encode("wrong"));
+        die();
     }
 
 

@@ -10,14 +10,14 @@
 
 </head>
 <body>
-<br>
-<h1 class="h1" style="text-align: center">This is the start of the project</h1>
-<br>
-<h2 class="h1" style="text-align: center">COMP3000 2121/2022</h2>
-<br>
-<h3 class="h1" style="text-align: center">Security Dashboard for Other Users</h3>
-<br>
-<h3 class="h1" style="text-align: center">Landing Page</h3>
+<!--<br>-->
+<!--<h1 class="h1" style="text-align: center">This is the start of the project</h1>-->
+<!--<br>-->
+<!--<h2 class="h1" style="text-align: center">COMP3000 2121/2022</h2>-->
+<!--<br>-->
+<!--<h3 class="h1" style="text-align: center">Security Dashboard for Other Users</h3>-->
+<!--<br>-->
+<!--<h3 class="h1" style="text-align: center">Landing Page</h3>-->
 
 
 
@@ -27,14 +27,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md panel header-panel">
-                Admin Dashboard
+            Security Dashboard
             </div>
         </div>
 
         <div class="row">
             <div class="col-md panel main-panel">
                 <div  class="heading">
-                    Brief overview of the website and functions.
+                    <br>
+                    <h1 class="h1" style="text-align: center">This is the start of the project</h1>
+                    <br>
+                    <h2 class="h1" style="text-align: center">COMP3000 2121/2022</h2>
+                    <br>
+                    <h3 class="h1" style="text-align: center">Security Dashboard for Other Users</h3>
+                    <br>
+                    <h3 class="h1" style="text-align: center">Landing Page</h3>
                 </div>
                 <hr>
 
