@@ -19,22 +19,26 @@
 $error = (isset($_GET["err"])) ? base64_decode($_GET["err"]) : "";
 if ($error == "wrong") {echo "<div class=\"alert alert-danger alert-dismissible\" role=\"alert\" id=\"banner\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>ERROR:</strong>      Incorrect Login Credentials</div>";}
 
+$error = (isset($_GET["err"])) ? base64_decode($_GET["err"]) : "";
+if ($error == "wrong??") {echo "<div class=\"alert alert-danger alert-dismissible\" role=\"alert\" id=\"banner\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>ERROR:</strong>      Wrong</div>";}
+
 include "functions.php";
 ?>
 <br>
 
 <div class="login">
     <h1>Dashboard Login</h1>
-    <form action="authenticate.php" method="post">
-        <label for="username">
+    <form action="authTemp.php" method="post">
+        <label for="email">
             <i class="fas fa-user"></i>
         </label>
-        <input type="text" name="username" placeholder="Username" id="username" required>
+<!--        need to change this to email without changing the size of the box!-->
+        <input type="text" name="email" placeholder="Email" id="email" required>
         <label for="password">
             <i class="fas fa-lock"></i>
         </label>
         <input type="password" name="password" placeholder="Password" id="password" required>
-        <input type="submit" value="Login">
+        <input type="submit" name="btnLogin" value="Submit">
     </form>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
