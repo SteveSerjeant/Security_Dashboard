@@ -22,13 +22,19 @@ if ($error == "wrong") {echo "<div class=\"alert alert-danger alert-dismissible\
 $error = (isset($_GET["err"])) ? base64_decode($_GET["err"]) : "";
 if ($error == "wrong??") {echo "<div class=\"alert alert-danger alert-dismissible\" role=\"alert\" id=\"banner\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>ERROR:</strong>      Wrong</div>";}
 
+$error = (isset($_GET["err"])) ? base64_decode($_GET["err"]) : "";
+if ($error == "wrong1") {echo "<div class=\"alert alert-danger alert-dismissible\" role=\"alert\" id=\"banner\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>ERROR:</strong>      Wrong Password</div>";}
+
+$error = (isset($_GET["err"])) ? base64_decode($_GET["err"]) : "";
+if ($error == "wrong2") {echo "<div class=\"alert alert-danger alert-dismissible\" role=\"alert\" id=\"banner\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>ERROR:</strong>      Wrong Username/div>";}
+
 include "functions.php";
 ?>
 <br>
 
 <div class="login">
     <h1>Dashboard Login</h1>
-    <form action="authTemp.php" method="post">
+    <form action="authTemp2.php" method="post">
         <label for="email">
             <i class="fas fa-user"></i>
         </label>

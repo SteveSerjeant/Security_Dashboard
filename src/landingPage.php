@@ -41,12 +41,18 @@
                     <h3 class="h1" style="text-align: center">Security Dashboard for Main User</h3>
                     <br>
                     <h3 class="h1" style="text-align: center">Landing Page</h3>
+
                 </div>
                 <hr>
 
             </div>
         </div>
     </div>
+    <?php
+    // Scan network to retrieve hosts and services information.
+//    $exec = "/usr/local/bin/nmap -oN results.txt -iL targets.txt";
+
+    ?>
 </div>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
 <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>-->
