@@ -34,7 +34,7 @@ include "functions.php";
 
 <div class="login">
     <h1>Dashboard Login</h1>
-    <form action="authTemp2.php" method="post">
+    <form action="authenticate.php" method="post">
         <label for="email">
             <i class="fas fa-user"></i>
         </label>
