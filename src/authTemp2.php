@@ -24,11 +24,17 @@ if ( !isset($_POST['email'], $_POST['password']) ) {
     // Could not get the data that should have been sent.
     exit('Please fill both the username and password fields!');
 }
-
+//test inputs from index page
+//$password = $_POST["password"];
+//$email = $_POST["email"];
+//echo $email;
+//echo "<br>";
+//echo $password;
 // Prepare our SQL statement.
 //if ($stmt = $con->prepare('CALL validateEmail(?)'))
-    if ($stmt = $con->prepare('SELECT id, password, userType FROM users WHERE email = ?'))
-{
+//if ($stmt = $con->prepare('SELECT id, password, userType FROM users WHERE email = ?'))
+//{
+    $stmt = $con->prepare('CALL validateEmail(?)');
     $stmt->bind_param('s', $_POST['email']);
     $stmt->execute();
     // Store the result from prepared statement
@@ -67,16 +73,16 @@ if ( !isset($_POST['email'], $_POST['password']) ) {
             // Incorrect password
             echo 'Go away!';
             // | Incorrect password
-            header('Location: index.php?err=' . base64_encode("wrong"));
+            header('Location: index.php?err=' . base64_encode("wrong1"));
             die();
         }
     } else {
         // Incorrect username
-        header('Location: index.php?err=' . base64_encode("wrong"));
+        header('Location: index.php?err=' . base64_encode("wrong2"));
         die();
     }
 
 
     $stmt->close();
-}
+//}
 ?>
