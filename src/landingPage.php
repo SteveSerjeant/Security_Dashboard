@@ -1,5 +1,48 @@
 <!DOCTYPE html>
 <html lang = "en">
+<?php
+//$text = file_get_contents("c:\Users\sarge\source\xxxx.txt");
+//$regexIP = '/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/';
+//
+//preg_match_all($regexIP, $text, $match);
+
+include_once ("dbconn.php");
+
+$text = file_get_contents("C:\Users\sarge\source\xxxx.txt");
+//echo $text;
+//echo '<br><br>';
+
+//if ($scan = fopen("C:\Users\sarge\source\xxxx.txt", "r")){
+//    while (!feof($scan)){
+//        $scanLine = fgets($scan);
+//        echo $scanLine, "<br>";
+//    }
+//
+//}
+
+if ($file = fopen("C:\Users\sarge\source\xxxx.txt", "r")){
+    while (!feof($file)){
+        $line = fgets($file);
+//        echo $line, "<br>";
+        if (stristr($line, 'Nmap scan report')) {
+            $output = str_replace('Nmap scan report for', '', $line);
+            $output = str_replace('(', '', $output);
+            $output = str_replace(')', '', $output);
+            echo $output, "<br>";
+
+
+
+        }
+
+
+    }
+
+    fclose($file);
+}
+$result = mysqli_query($conn, "SELECT * FROM ipAddresses");
+
+
+?>
 <head>
     <title>Landing Page</title>
     <meta charset="UTF-8">
@@ -47,12 +90,46 @@
 
             </div>
         </div>
-    </div>
-    <?php
-    // Scan network to retrieve hosts and services information.
-//    $exec = "/usr/local/bin/nmap -oN results.txt -iL targets.txt";
+        <div class = "wrapper">
+            <div class="container-fluid">
 
-    ?>
+                <div class = "row">
+                    <table id="output" style="width: 50%; height: 20%; text-align: center">
+                        <colgroup>
+                            <col span="1" style="width: 33%">
+                            <col span="1" style="width: 33%">
+                            <col span="1" style="width: 33%">
+<!--                            <col span="1" style="width: 10%">-->
+                        </colgroup>
+
+                        <tr bgcolor="#afeeee" style="text-align: center">
+                            <td style='text-align: center'>IP Address</td>
+                            <td style='text-align: center'>Description<td>
+                            <td style='text-align: center'>When Added</td>
+<!--                            <td style='text-align: center'>My Name</td>-->
+                        </tr>
+                        <?php
+                        while($res = mysqli_fetch_array($result)) {
+                            echo "<tr style='text-align: center' >";
+                            echo "<td bgcolor='' style='text-align: center'>".$res['address']."</td>";
+                            echo "<td style='text-align: center'>".$res['description']."</td>";
+                            echo "<td style='text-align: left'>".$res['added']."</td>";
+//                            echo "<td style='text-align: left'>".$res['notes']."</td>";
+
+                        }
+
+                        ?>
+                    </table>
+                </div>
+            </div>
+        </div>
+<!--        <div class="row">-->
+<!--            <pre>-->
+<!--            --><?php //print_r($match); ?>
+<!--            </pre>-->
+<!--        </div>-->
+    </div>
+
 </div>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
 <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>-->
