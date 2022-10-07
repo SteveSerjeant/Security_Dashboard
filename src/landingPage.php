@@ -20,25 +20,25 @@ $text = file_get_contents("C:\Users\sarge\source\xxxx.txt");
 //
 //}
 
-if ($file = fopen("C:\Users\sarge\source\xxxx.txt", "r")){
-    while (!feof($file)){
-        $line = fgets($file);
-//        echo $line, "<br>";
-        if (stristr($line, 'Nmap scan report')) {
-            $output = str_replace('Nmap scan report for', '', $line);
-            $output = str_replace('(', '', $output);
-            $output = str_replace(')', '', $output);
-            echo $output, "<br>";
-
-
-
-        }
-
-
-    }
-
-    fclose($file);
-}
+//if ($file = fopen("C:\Users\sarge\source\xxxx.txt", "r")){
+//    while (!feof($file)){
+//        $line = fgets($file);
+////        echo $line, "<br>";
+//        if (stristr($line, 'Nmap scan report')) {
+//            $output = str_replace('Nmap scan report for', '', $line);
+//            $output = str_replace('(', '', $output);
+//            $output = str_replace(')', '', $output);
+//            echo $output, "<br>";
+//
+//
+//
+//        }
+//
+//
+//    }
+//
+//    fclose($file);
+//}
 $result = mysqli_query($conn, "SELECT * FROM ipAddresses");
 
 
@@ -70,7 +70,7 @@ $result = mysqli_query($conn, "SELECT * FROM ipAddresses");
     <div class="container">
         <div class="row">
             <div class="col-md panel header-panel">
-                Security Dashboard
+                Home Network Security Dashboard
             </div>
         </div>
 
@@ -94,27 +94,33 @@ $result = mysqli_query($conn, "SELECT * FROM ipAddresses");
             <div class="container-fluid">
 
                 <div class = "row">
-                    <table id="output" style="width: 50%; height: 20%; text-align: center">
+                    <table id="output" style="width: 100%; height: 20%; text-align: center">
                         <colgroup>
-                            <col span="1" style="width: 33%">
-                            <col span="1" style="width: 33%">
-                            <col span="1" style="width: 33%">
-<!--                            <col span="1" style="width: 10%">-->
+                            <col span="1" style="width: 10%">
+                            <col span="1" style="width: 10%">
+                            <col span="1" style="width: 10%">
+                            <col span="1" style="width: 35%">
+                            <col span="1" style="width: 35%">
                         </colgroup>
 
                         <tr bgcolor="#afeeee" style="text-align: center">
-                            <td style='text-align: center'>IP Address</td>
-                            <td style='text-align: center'>Description<td>
-                            <td style='text-align: center'>When Added</td>
-<!--                            <td style='text-align: center'>My Name</td>-->
+                            <th style='text-align: center'>IP Address</th>
+                            <th style='text-align: center'>Description</th>
+                            <th style='text-align: center'>When Added</th>
+                            <th style='text-align: center'>My Name</th>
+                            <th style='text-align: center'>Notes</th>
                         </tr>
                         <?php
                         while($res = mysqli_fetch_array($result)) {
                             echo "<tr style='text-align: center' >";
-                            echo "<td bgcolor='' style='text-align: center'>".$res['address']."</td>";
+                            echo "<td style='text-align: center'>".$res['address']."</td>";
                             echo "<td style='text-align: center'>".$res['description']."</td>";
-                            echo "<td style='text-align: left'>".$res['added']."</td>";
-//                            echo "<td style='text-align: left'>".$res['notes']."</td>";
+                            echo "<td style='text-align: center'>".$res['added']."</td>";
+                            echo "<td style='text-align: left'>".$res['ownName']."</td>";
+                            echo "<td style='text-align: left'>".$res['notes']."</td>";
+                            echo "</tr>";
+
+
 
                         }
 
