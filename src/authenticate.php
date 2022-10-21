@@ -50,7 +50,7 @@ if ( !isset($_POST['email'], $_POST['password']) ) {
             switch ($_SESSION["userType"])
             {
                 case "main":
-                    header('Location: landingPage.php');
+                    header('Location: tempLandingPage.php');
                     break;
                 case "other":
                     header('Location: landingPageOther.php');

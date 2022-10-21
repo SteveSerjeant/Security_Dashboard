@@ -1,25 +1,35 @@
-<nav id="sidebar">
-    <ul class="asideList">
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Security Dashboard</span>
-            <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-            </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-                <a class="nav-link" href="admin-dashboard.php">
-                    <span data-feather="file-text"></span>
-                    Settings
-                </a>
-            </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="logoff.php">
-                        <span data-feather="file-text"></span>
-                        Sign out
-                    </a>
-                </li>
-            </ul>
-        </ul>
-    </ul>
-</nav>
+<head>
+    <link rel="stylesheet" href="../css/forNavbar.css">
+</head>
+<header>
+    <div id="top-header">
+
+        <div id="logo">
+            <img src="../img/logo.png" />
+        </div>
+        <div id="name">
+            Home Network Security Dashboard
+        </div>
+
+        <nav >
+            <div id="menu">
+                <ul>
+
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Settings</a></li>
+                    <li><a href="logoff.php">Log Out</a></li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+    </div>
+
+    <div id="header-image-menu">
+
+    </div>
+
+
+</header>
+
