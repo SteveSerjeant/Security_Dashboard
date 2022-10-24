@@ -5,17 +5,15 @@
     <div id="top-header">
 
         <div id="logo">
-            <img src="../img/logo.png" />
+            <img src="../img/logo2.png" />
         </div>
-        <div id="name">
-            Home Network Security Dashboard
-        </div>
+
 
         <nav >
             <div id="menu">
                 <ul>
 
-                    <li><a href="">Home</a></li>
+                    <li><a href="">Profile</a></li>
                     <li><a href="">Settings</a></li>
                     <li><a href="logoff.php">Log Out</a></li>
 

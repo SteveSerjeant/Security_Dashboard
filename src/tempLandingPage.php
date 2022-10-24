@@ -5,9 +5,14 @@
 
 include_once ("dbconn.php");
 
+$text = file_get_contents("C:\Users\sarge\source\xxxx.txt");
+
+$result = mysqli_query($conn, "SELECT * FROM ipAddresses");
+
+
 ?>
 <head>
-    <title>Landing Page</title>
+    <title>Landing Page (Temp)</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/stylesheet.css" type="text/css">
@@ -15,17 +20,109 @@ include_once ("dbconn.php");
 </head>
 <body>
 <header>
-    <nav>
-        <div class=""wrapper">
-        <?php include 'navbar.php';?>
-
-        </div>
-
-    </nav>
+<?php include 'header.php' ?>
 </header>
+<nav>
+    <div class=""wrapper">
+    <?php include 'navbar.php';?>
+
+    </div>
+
+</nav>
 <article>
-    <section>…</section>
-    <section>…</section>
+    <section>
+        <div class = "wrapper">
+            <div class="container-fluid">
+
+                <div class = "row">
+                    <table id="output" style="width: 75%; height: 20%; text-align: center">
+                        <colgroup>
+                            <col span="1" style="width: 10%">
+                            <col span="1" style="width: 10%">
+                            <col span="1" style="width: 10%">
+                            <col span="1" style="width: 20%">
+                            <!--                            <col span="1" style="width: 35%">-->
+                        </colgroup>
+
+                        <tr bgcolor="#afeeee" style="text-align: center">
+                            <th style='text-align: center'>IP Address</th>
+                            <th style='text-align: center'>Description</th>
+                            <th style='text-align: center'>When Added</th>
+                            <th style='text-align: center'>My Name</th>
+                            <!--                            <th style='text-align: center'>Notes</th>-->
+                        </tr>
+
+
+                        <?php
+                        while($res = mysqli_fetch_array($result)) {
+                            echo "<tr style='text-align: center' >";
+                            echo "<td style='text-align: center'>".$res['address']."</td>";
+                            echo "<td style='text-align: center'>".$res['description']."</td>";
+                            echo "<td style='text-align: center'>".$res['added']."</td>";
+                            echo "<td style='text-align: left'>".$res['ownName']."</td>";
+//                            echo "<td style='text-align: left'>".$res['notes']."</td>";
+                            echo "</tr>";
+
+
+
+                        }
+
+
+                        ?>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class = "wrapper2">
+            <div class="container-fluid">
+
+                <div class = "row">
+                    <table id="output" style="width: 75%; height: 20%; text-align: center">
+                        <colgroup>
+                            <col span="1" style="width: 10%">
+                            <col span="1" style="width: 10%">
+                            <col span="1" style="width: 10%">
+                            <col span="1" style="width: 20%">
+                            <!--                            <col span="1" style="width: 35%">-->
+                        </colgroup>
+
+                        <tr bgcolor="#afeeee" style="text-align: center">
+                            <th style='text-align: center'>IP Address</th>
+                            <th style='text-align: center'>Description</th>
+                            <th style='text-align: center'>When Added</th>
+                            <th style='text-align: center'>My Name</th>
+                            <!--                            <th style='text-align: center'>Notes</th>-->
+                        </tr>
+
+
+                        <?php
+
+                        $sql = 'CALL getData()';
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr style='text-align: center' >";
+                            echo "<td style='text-align: center'>" . $row['address'] . "</td>";
+                            echo "<td style='text-align: center'>" . $row['description'] . "</td>";
+                            echo "<td style='text-align: center'>" . $row['added'] . "</td>";
+                            echo "<td style='text-align: left'>" . $row['ownName'] . "</td>";
+                            echo "</tr>";
+                        }
+                        $stmt->close()
+                        ?>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
     <section>…</section>
 </article>
 <aside>…</aside>
