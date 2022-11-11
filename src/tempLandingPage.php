@@ -7,7 +7,7 @@ include_once ("dbconn.php");
 
 $text = file_get_contents("C:\Users\sarge\source\xxxx.txt");
 
-$result = mysqli_query($conn, "SELECT * FROM ipAddresses");
+//$result = mysqli_query($conn, "SELECT * FROM ipAddresses");
 
 
 ?>
@@ -30,44 +30,48 @@ $result = mysqli_query($conn, "SELECT * FROM ipAddresses");
 
 </nav>
 <article>
+
     <section>
-        <div class = "wrapper">
+        <div class = "wrapper2">
             <div class="container-fluid">
 
                 <div class = "row">
-                    <table id="output" style="width: 75%; height: 20%; text-align: center">
+                    <table id="output" style="width: 80%; height: 20%; text-align: center">
                         <colgroup>
                             <col span="1" style="width: 10%">
                             <col span="1" style="width: 10%">
+                            <col span="1" style="width: 70%">
                             <col span="1" style="width: 10%">
-                            <col span="1" style="width: 20%">
                             <!--                            <col span="1" style="width: 35%">-->
                         </colgroup>
 
                         <tr bgcolor="#afeeee" style="text-align: center">
                             <th style='text-align: center'>IP Address</th>
-                            <th style='text-align: center'>Description</th>
-                            <th style='text-align: center'>When Added</th>
-                            <th style='text-align: center'>My Name</th>
+                            <th style='text-align: center'>Host Name</th>
+                            <th style='text-align: center'>Ports</th>
+                            <th style='text-align: center'>Timestamp</th>
                             <!--                            <th style='text-align: center'>Notes</th>-->
                         </tr>
 
 
                         <?php
-                        while($res = mysqli_fetch_array($result)) {
+
+//                        $sql = 'CALL getData()';
+                        $sql = 'SELECT * from log';
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+
+
+                        while ($row = $result->fetch_assoc()) {
                             echo "<tr style='text-align: center' >";
-                            echo "<td style='text-align: center'>".$res['address']."</td>";
-                            echo "<td style='text-align: center'>".$res['description']."</td>";
-                            echo "<td style='text-align: center'>".$res['added']."</td>";
-                            echo "<td style='text-align: left'>".$res['ownName']."</td>";
-//                            echo "<td style='text-align: left'>".$res['notes']."</td>";
+                            echo "<td style='text-align: center'>" . $row['ip'] . "</td>";
+                            echo "<td style='text-align: center'>" . $row['hostname'] . "</td>";
+                            echo "<td style='text-align: left'>" . $row['ports'] . "</td>";
+                            echo "<td style='text-align: center'>" . $row['timestamp'] . "</td>";
                             echo "</tr>";
-
-
-
                         }
-
-
+                        $stmt->close()
                         ?>
 
 
@@ -77,7 +81,7 @@ $result = mysqli_query($conn, "SELECT * FROM ipAddresses");
         </div>
     </section>
     <section>
-        <div class = "wrapper2">
+        <div class = "wrapper3">
             <div class="container-fluid">
 
                 <div class = "row">
@@ -91,10 +95,10 @@ $result = mysqli_query($conn, "SELECT * FROM ipAddresses");
                         </colgroup>
 
                         <tr bgcolor="#afeeee" style="text-align: center">
+                            <th style='text-align: center'>Host Name</th>
                             <th style='text-align: center'>IP Address</th>
-                            <th style='text-align: center'>Description</th>
-                            <th style='text-align: center'>When Added</th>
-                            <th style='text-align: center'>My Name</th>
+                            <th style='text-align: center'>When Added </th>
+                            <th style='text-align: center'>Notes</th>
                             <!--                            <th style='text-align: center'>Notes</th>-->
                         </tr>
 
@@ -106,10 +110,11 @@ $result = mysqli_query($conn, "SELECT * FROM ipAddresses");
                         $stmt->execute();
                         $result = $stmt->get_result();
 
+
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr style='text-align: center' >";
-                            echo "<td style='text-align: center'>" . $row['address'] . "</td>";
                             echo "<td style='text-align: center'>" . $row['description'] . "</td>";
+                            echo "<td style='text-align: center'>" . $row['address'] . "</td>";
                             echo "<td style='text-align: center'>" . $row['added'] . "</td>";
                             echo "<td style='text-align: left'>" . $row['ownName'] . "</td>";
                             echo "</tr>";
