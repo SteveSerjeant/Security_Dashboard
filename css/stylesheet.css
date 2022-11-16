@@ -130,8 +130,38 @@ body
 
 .wrapper3 {
     background-color: #20c997;
+    border: 1px solid;
 }
 
+.outputTable {
+    border-collapse: collapse;
+  }
+
+.outputTable th {
+    border-style: solid; border-width: 2px;
+}
+
+.outputTable tr {
+    border-style: solid; border-color: darkblue; border-width: 1px 0 0 2px;
+}
+
+.outputTable td {
+    /*padding:2px 4px; border-style:solid; border-color: red; border-width:0 1px 1px 0;*/
+    border-style:solid; border-color: darkblue; border-width: 0 1px 1px 0;
+}
+
+.outputTable tr:first-child {
+    border-top-width:2px; }
+
+.outputTable tr:last-child td {
+    border-bottom-width:2px; }
+
+.outputTable tr td:last-child {
+    border-right-width:2px; }
+
+.portList {
+    background-color: lightpink;
+}
 
 
 
