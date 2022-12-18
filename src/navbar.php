@@ -24,9 +24,9 @@
         </nav>
     </div>
 
-    <div id="header-image-menu">
-
-    </div>
+<!--    <div id="header-image-menu">-->
+<!---->
+<!--    </div>-->
 
 
 </header>

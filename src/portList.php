@@ -22,74 +22,94 @@
     <td><a href='tempLandingPage.php'>Back</a></td>
 </nav>
 <?php
-//$xmlData = simplexml_load_file("C:\Users\sarge\source\servicesFile.xml");
-$xmlData = simplexml_load_file("C:\Users\sarge\source\servicesFile.xml");
-//$xmlData = simplexml_load_string("C:\Users\sarge\source\servicesFile.xml");
-//$xmlData = simplexml_load_string($xmlData);
 
-//foreach ($xmlData->children() as $data){
-//    echo "Shut Up: ",$data . "<br>";
-//}
+$id = $_GET['id'];
+//echo "IP Address: " . $id . "<br><br>";
 
-//foreach ($xmlData->host->address->addr as $addr){
-//    echo "$addr";
-//}
+$file= simplexml_load_file("C:\Users\sarge\source\scanResults.xml");
 
-$xml = file_get_contents("C:\Users\sarge\source\servicesFile.xml");
+foreach ($file->host as $hostInfo){
+    $timestamp = $file['startstr'];
+//    echo $timestamp . "<br>";
+    $ip = $hostInfo->address['addr'];
+    echo $ip . "<br>";
 
-//$xsl_doc = new DOMDocument();
-//$xsl_doc->load("file.xsl");
-//
-//$proc = new XSLTProcessor();
-//$proc->importStylesheet($xsl_doc);
-//$newdom= $proc->transformToDoc($xsl_doc);
-//
-//print $newdom->saveXML();
-
-$doc = new DOMDocument();
-$doc->loadXML($xml);
-$x = new DOMXPath($doc);
-$host = $doc->getElementsByTagName("hostname");
-$port = $doc->getElementsByTagName("port");
-$xml="";
-$name="";
-$nameOutput = "";
-foreach ($host as $host){
-
-    $name = $host->getAttribute("name");
-    echo "$name<br>";
-
-
-
-}
-foreach ($port as $port){
-
-    $ports = $port->getAttribute("portid");
-    echo "$ports<br>";
-
-    foreach ($port as $port) {
-        $ports = $port->getAttribute("portid");
-        echo "$ports<br>";
+    if ($file->address['addr'] = $id) {
+//        echo "IP: " . $id . "<br>";
+        $name = $hostInfo->hostname['name'];
+        echo $name;
     }
+                foreach ($hostInfo->ports->port as $portid) {
+//        echo $portid['portid'] . " " . $portid->state['state'] . " " . $portid->service['name'] . "<br>";
+        $timestamp = $file['startstr'];
+        $ip = $file->address['addr'];
+        $port = $portid['portid'];
+        $state = $portid->state['state'];
+        $service = $portid->service['name'];
+
+        echo "Port Number: " . $port . " State: " . $state . " Service: " . $service . "<br>";
+
+    }
+                echo"<br>";
 
 }
 
-//var_dump(htmlentities($xml));
-//var_dump(htmlentities($name));
-//var_dump(htmlentities($nameOutput));
+//if ($file->address['addr'] = $id){
+//    echo "IP: " . $id;
+//    $host = $file->hostname['name'];
+//    echo $host;
+////        foreach ($file->ports->port as $portid) {
+//////        echo $portid['portid'] . " " . $portid->state['state'] . " " . $portid->service['name'] . "<br>";
+////        $timestamp = $file['startstr'];
+////        $ip = $file->address['addr'];
+////        $port = $portid['portid'];
+////        $state = $portid->state['state'];
+////        $service = $portid->service['name'];
+////        echo "Port Number: " . $port . " State: " . $state . " Service: " . $service . "<br>";
+////
+////    }
+//
+//}
+//else {
+//    echo "Nothing Found.";
+//}
 
 
-
-
-
+//foreach ($file->host as $hostInfo) {
+//
+////    echo "MAC: " . $id . "<br>";
+//    $timestamp = $file['startstr'];
+//    echo $timestamp . "<br>";
+//    $ip = $hostInfo->address['addr'];
+//    echo $ip . "<br>";
+////
+////    if ($hostInfo = $id) {
+////        echo $timestamp . "<br>";
+////        echo $ip . "<br>";
+////    }
+////    else {
+////        echo "Nothing found!";
+////    }
+//
+//
+//
+//    foreach ($hostInfo->ports->port as $portid) {
+////        echo $portid['portid'] . " " . $portid->state['state'] . " " . $portid->service['name'] . "<br>";
+//        $timestamp = $hostInfo['startstr'];
+//        $ip = $hostInfo->address['addr'];
+//        $port = $portid['portid'];
+//        $state = $portid->state['state'];
+//        $service = $portid->service['name'];
+//        echo "Port Number: " . $port . " State: " . $state . " Service: " . $service . "<br>";
+//
+//    }
+//    echo "<br><br>";
+//
+//
+//}
 ?>
 
-<!--<p id="demo"></p>-->
-<!---->
-<!--<script>-->
-<!--    const host = document.getElementsByTagName("host");-->
-<!--    -->
-<!--</script>-->
+
 
 </body>
 

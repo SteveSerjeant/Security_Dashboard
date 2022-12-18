@@ -10,25 +10,25 @@ header {
 
 #logo{
     float: left;
-    padding: none;
-    margin: none;
+    padding: 5px;
+    /*margin: 10px;*/
     height: 60px;
-    width: 30%;
+    width: 60%;
 }
 
 #logo img {
-    width: 60%;
+    width: 20%;
     float: left;
-    padding: 10px 0px;
+    padding: 1px 0px;
 }
 
-#name {
-    float: left;
-    width: 40%;
-    height: 100%;
-    background: #4a535b;
+/*#name {*/
+/*    float: left;*/
+/*    width: 40%;*/
+/*    height: 100%;*/
+/*    background: #4a535b;*/
 
-}
+/*}*/
 
 
 #menu{

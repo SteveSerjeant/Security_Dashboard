@@ -135,6 +135,8 @@ body
 
 .outputTable {
     border-collapse: collapse;
+    line-height: normal;
+    padding-top: 100px;
   }
 
 .outputTable th {
