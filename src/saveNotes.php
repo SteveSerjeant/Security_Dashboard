@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
     {
         $stmt->close();
         mysqli_close($conn);
-        header('Location: tempLandingPage.php');
+        header('Location: tempLandingPage.php?err=' . base64_encode("added"));
     }
 }
 //$id = $_GET['id'];

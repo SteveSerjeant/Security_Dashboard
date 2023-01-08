@@ -44,11 +44,7 @@
 </nav>
 <?php
 
-
-
 $ip = $_GET['id'];
-echo $ip;
-
 
 ?>
 
