@@ -12,7 +12,7 @@
         <nav >
             <div id="menu">
                 <ul>
-
+                    <li><a href="tempLandingPage.php">Home</a> </li>
                     <li><a href="">Profile</a></li>
                     <li><a href="">Settings</a></li>
                     <li><a href="logoff.php">Log Out</a></li>
