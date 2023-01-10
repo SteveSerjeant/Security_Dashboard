@@ -49,7 +49,7 @@ $ip = $_GET['id'];
 ?>
 
 <div class="wrapper">
-    <div class="container-fluid">
+    <div class="container-fluid" style="background-color: lightgreen">
 
             <div class="row">
                 <div class="col-md-12">

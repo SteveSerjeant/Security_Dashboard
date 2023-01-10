@@ -35,31 +35,73 @@ $id = $_GET['id'];
 
 $file= simplexml_load_file("C:\Users\sarge\source\scanResults.xml");
 
-foreach ($file->host as $hostInfo){
-    $timestamp = $file['startstr'];
-//    echo $timestamp . "<br>";
-    $ip = $hostInfo->address['addr'];
-    echo $ip . "<br>";
+//echo "IP Address: " . $id . "<br><br>";
 
-    if ($file->address['addr'] = $id) {
-//        echo "IP: " . $id . "<br>";
-        $name = $hostInfo->hostname['name'];
-        echo $name;
+//$ip = $file->host->addr[$id];
+//echo $ip;
+
+foreach ($file->host as $host)
+{
+//    $name = $host->hostnames->hostname['name'];
+//    echo $name."<br><br>";
+
+    $addr = (string) ($host->address['addr']);
+
+    if ($id == $addr) {
+        echo "IP Address: " . $addr."<br>";
+        $name = $host->hostnames->hostname['name'];
+        $port = $host->ports->port['portid'];
+        $state = $host->ports->port->state['state'];
+        $service = $host->ports->port->service['name'];
+        echo "PortID: ".$port." State: ".$state." Service: ".$service."<br>";
+        echo "Hostname: ".$name."<br>";
+        foreach ($host->ports->port as $port)
+        {
+//            $port = $host->ports->port['portid'];
+//            $state = $host->ports->port->state['state'];
+//            $service = $host->ports->port->service['name'];
+            $port = $port['portid'];
+            $state = $port->state['state'];
+//            $state = $host->ports->port->state['state']; // shows just 1st state
+            $service = $port->service['name'];
+            echo "PortID: ".$port." State: ".$state." Service: ".$service."<br>";
+        }
+
+
+
     }
-                foreach ($hostInfo->ports->port as $portid) {
-//        echo $portid['portid'] . " " . $portid->state['state'] . " " . $portid->service['name'] . "<br>";
-        $timestamp = $file['startstr'];
-        $ip = $file->address['addr'];
-        $port = $portid['portid'];
-        $state = $portid->state['state'];
-        $service = $portid->service['name'];
 
-        echo "Port Number: " . $port . " State: " . $state . " Service: " . $service . "<br>";
-
+    else{
+//        echo " Wrong IP: ".$addr."<br>";
+        echo "";
     }
-                echo"<br>";
-
 }
+
+//foreach ($file->host as $hostInfo){
+//    $timestamp = $file['startstr'];
+////    echo $timestamp . "<br>";
+//    $ip = $hostInfo->address['addr'];
+//    echo $ip . "<br>";
+//
+//    if ($file->address['addr'] = $id) {
+////        echo "IP: " . $id . "<br>";
+//        $name = $hostInfo->hostname['name'];
+//        echo $name;
+//    }
+//                foreach ($hostInfo->ports->port as $portid) {
+////        echo $portid['portid'] . " " . $portid->state['state'] . " " . $portid->service['name'] . "<br>";
+//        $timestamp = $file['startstr'];
+//        $ip = $file->address['addr'];
+//        $port = $portid['portid'];
+//        $state = $portid->state['state'];
+//        $service = $portid->service['name'];
+//
+//        echo "Port Number: " . $port . " State: " . $state . " Service: " . $service . "<br>";
+//
+//    }
+//                echo"<br>";
+//
+//}
 
 //if ($file->address['addr'] = $id){
 //    echo "IP: " . $id;
