@@ -48,26 +48,28 @@ foreach ($file->host as $host)
     $addr = (string) ($host->address['addr']);
 
     if ($id == $addr) {
-        echo "IP Address: " . $addr."<br>";
-        $name = $host->hostnames->hostname['name'];
-        $port = $host->ports->port['portid'];
-        $state = $host->ports->port->state['state'];
-        $service = $host->ports->port->service['name'];
-        echo "PortID: ".$port." State: ".$state." Service: ".$service."<br>";
-        echo "Hostname: ".$name."<br>";
-        foreach ($host->ports->port as $port)
+        echo "IP Address: " . $addr."<br><br>";
+//        $name = $host->hostnames->hostname['name'];
+//        $port = $host->ports->port['portid'];
+//        $state = $host->ports->port->state['state'];
+//        $service = $host->ports->port->service['name'];
+//        echo "PortID: ".$port." State: ".$state." Service: ".$service."<br>";
+//        echo "Hostname: ".$name."<br>";
+        foreach ($host->ports->port as $portid)
         {
 //            $port = $host->ports->port['portid'];
 //            $state = $host->ports->port->state['state'];
 //            $service = $host->ports->port->service['name'];
-            $port = $port['portid'];
-            $state = $port->state['state'];
+            $port = $portid['portid'];
+            $protocol = $portid['protocol'];
 //            $state = $host->ports->port->state['state']; // shows just 1st state
-            $service = $port->service['name'];
+            $state = $portid->state['state'];
+            $service = $portid->service['name'];
+//            echo "PortID: ".$port." State: ".$state." Service: ".$service."<br>";
             echo "PortID: ".$port." State: ".$state." Service: ".$service."<br>";
+
+
         }
-
-
 
     }
 
