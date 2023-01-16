@@ -40,7 +40,8 @@ body {
     align-items: center;
     width: 50px;
     height: 50px;
-    background-color: #3274d6;
+    /*background-color: #3274d6;*/
+    background-color: #4a535b;
     color: #ffffff;
 }
 /*.login form input[type="email"], .login form input[type="email"] {*/
@@ -63,7 +64,8 @@ body {
     width: 100%;
     padding: 15px;
     margin-top: 20px;
-    background-color: #3274d6;
+    /*background-color: #3274d6;*/
+    background-color: #4a535b;
     border: 0;
     cursor: pointer;
     font-weight: bold;
@@ -71,7 +73,8 @@ body {
     transition: background-color 0.2s;
 }
 .login form input[type="submit"]:hover {
-    background-color: #2868c7;
+    /*background-color: #2868c7;*/
+    background-color: #4a535b;
     transition: background-color 0.2s;
 }
 
@@ -82,10 +85,6 @@ body {
     padding: 0;
 }
 
-
-
-
-/*from Global-dashboard*/
 body
 {
     background-color: #f8f9fa;
@@ -120,3 +119,67 @@ body
 {
     padding-bottom: 1rem;
 }
+
+.wrapper {
+    background-color: green;
+}
+
+.wrapper2 {
+    background-color: lightpink;
+}
+
+.wrapper3 {
+    background-color: #20c997;
+    border: 1px solid;
+}
+
+.outputTable {
+    border-collapse: collapse;
+    line-height: normal;
+    padding-top: 100px;
+  }
+
+.outputTable th {
+    border-style: solid; border-width: 2px;
+}
+
+.outputTable tr {
+    border-style: solid; border-color: darkblue; border-width: 1px 0 0 2px;
+}
+
+.outputTable td {
+    /*padding:2px 4px; border-style:solid; border-color: red; border-width:0 1px 1px 0;*/
+    border-style:solid; border-color: darkblue; border-width: 0 1px 1px 0;
+}
+
+.outputTable tr:first-child {
+    border-top-width:2px; }
+
+.outputTable tr:last-child td {
+    border-bottom-width:2px; }
+
+.outputTable tr td:last-child {
+    border-right-width:2px; }
+
+.portList {
+    background-color: lightpink;
+}
+
+/*.close-btn {*/
+/*    float: right;*/
+/*    width: 1.5rem;*/
+/*    line-height: 1.5rem;*/
+/*    text-align: center;*/
+/*    cursor: pointer;*/
+/*    border-radius: 0.25rem;*/
+/*    background-color: lightgrey;*/
+/*}*/
+
+/*.close-btn:hover {*/
+/*    background-color: darkgray;*/
+/*}*/
+
+
+
+
+

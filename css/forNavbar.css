@@ -1,0 +1,74 @@
+header {
+    overflow: hidden;
+}
+
+#top-header{
+
+    text-align: center;
+    height: 60px;
+}
+
+#logo{
+    float: left;
+    padding: 5px;
+    /*margin: 10px;*/
+    height: 60px;
+    width: 60%;
+}
+
+#logo img {
+    width: 20%;
+    float: left;
+    padding: 1px 0px;
+}
+
+/*#name {*/
+/*    float: left;*/
+/*    width: 40%;*/
+/*    height: 100%;*/
+/*    background: #4a535b;*/
+
+/*}*/
+
+
+#menu{
+    float: right;
+    width: 30%;
+    height: 100%;
+    margin: none;
+}
+
+#menu ul{
+    text-align: center;
+    float: right;
+    margin: none;
+    background: #4a535b;
+}
+
+#menu li{
+    display: inline-block;
+    padding: none;
+    margin: none;
+}
+
+#menu li a, #menu li span{
+    display: inline-block;
+    padding: 0em 1.5em;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 60px;
+}
+
+#menu li a{
+    color: #fff;
+}
+
+#menu li:hover a, #menu li span{
+    background: #fff;
+    /*color: #0074d9;*/
+    color: #4a535b;
+    border-left: 1px solid #4a535b;
+    text-decoration: none;
+}
+

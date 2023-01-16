@@ -74,33 +74,33 @@ $result = mysqli_query($conn, "SELECT * FROM ipAddresses");
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md panel main-panel">
-                <div  class="heading">
-                    <h1 class="h1" style="text-align: center">This is the start of the project</h1>
-                    <br>
-                    <h2 class="h1" style="text-align: center">COMP3000 2121/2022</h2>
-                    <br>
-                    <h3 class="h1" style="text-align: center">Security Dashboard for Main User</h3>
-                    <br>
-                    <h3 class="h1" style="text-align: center">Landing Page</h3>
-
-                </div>
-                <hr>
-
-            </div>
-        </div>
+<!--        <div class="row">-->
+<!--            <div class="col-md panel main-panel">-->
+<!--                <div  class="heading">-->
+<!--                    <h1 class="h1" style="text-align: center">This is the start of the project</h1>-->
+<!--                    <br>-->
+<!--                    <h2 class="h1" style="text-align: center">COMP3000 2121/2022</h2>-->
+<!--                    <br>-->
+<!--                    <h3 class="h1" style="text-align: center">Security Dashboard for Main User</h3>-->
+<!--                    <br>-->
+<!--                    <h3 class="h1" style="text-align: center">Landing Page</h3>-->
+<!---->
+<!--                </div>-->
+<!--                <hr>-->
+<!---->
+<!--            </div>-->
+<!--        </div>-->
         <div class = "wrapper">
             <div class="container-fluid">
 
                 <div class = "row">
-                    <table id="output" style="width: 100%; height: 20%; text-align: center">
+                    <table id="output" style="width: 75%; height: 20%; text-align: center">
                         <colgroup>
                             <col span="1" style="width: 10%">
                             <col span="1" style="width: 10%">
                             <col span="1" style="width: 10%">
                             <col span="1" style="width: 35%">
-                            <col span="1" style="width: 35%">
+<!--                            <col span="1" style="width: 35%">-->
                         </colgroup>
 
                         <tr bgcolor="#afeeee" style="text-align: center">
@@ -108,7 +108,7 @@ $result = mysqli_query($conn, "SELECT * FROM ipAddresses");
                             <th style='text-align: center'>Description</th>
                             <th style='text-align: center'>When Added</th>
                             <th style='text-align: center'>My Name</th>
-                            <th style='text-align: center'>Notes</th>
+<!--                            <th style='text-align: center'>Notes</th>-->
                         </tr>
                         <?php
                         while($res = mysqli_fetch_array($result)) {
@@ -117,7 +117,7 @@ $result = mysqli_query($conn, "SELECT * FROM ipAddresses");
                             echo "<td style='text-align: center'>".$res['description']."</td>";
                             echo "<td style='text-align: center'>".$res['added']."</td>";
                             echo "<td style='text-align: left'>".$res['ownName']."</td>";
-                            echo "<td style='text-align: left'>".$res['notes']."</td>";
+//                            echo "<td style='text-align: left'>".$res['notes']."</td>";
                             echo "</tr>";
 
 
@@ -151,6 +151,7 @@ $result = mysqli_query($conn, "SELECT * FROM ipAddresses");
 <!--        });-->
 <!--    });-->
 <!--</script>-->
+
 
 
 
