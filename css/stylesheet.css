@@ -165,19 +165,10 @@ body
     background-color: lightpink;
 }
 
-/*.close-btn {*/
-/*    float: right;*/
-/*    width: 1.5rem;*/
-/*    line-height: 1.5rem;*/
-/*    text-align: center;*/
-/*    cursor: pointer;*/
-/*    border-radius: 0.25rem;*/
-/*    background-color: lightgrey;*/
-/*}*/
+.forPopup {
+    margin-top: 10%;
+}
 
-/*.close-btn:hover {*/
-/*    background-color: darkgray;*/
-/*}*/
 
 
 

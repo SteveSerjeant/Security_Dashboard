@@ -5,12 +5,12 @@
 include_once ("dbconn.php");
 ?>
 <head>
-    <title>Landing Page (Temp)</title>
+    <title>Home Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/stylesheet.css" type="text/css">
 
-    <link rel="stylesheet" href="../css/dashboardNavbar.css" type="text/css">
+    <link rel="stylesheet" href="../css/forNavbar.css" type="text/css">
 
     <!--    /*for alert messages*/-->
     <link rel="stylesheet" href="../css/forAlerts.css" type="text/css">
@@ -88,7 +88,7 @@ if ($alert == "added") {echo "<div class=\"alert alert-success alert-dismissible
 
     <section>
 
-        <div class = "wrapper3">
+        <div class = "wrapper3" id="hoverPopup">
             <div class="container-fluid">
 
                 <div class = "row3">
@@ -126,7 +126,7 @@ if ($alert == "added") {echo "<div class=\"alert alert-success alert-dismissible
 
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr style='text-align: center' >";
-                            echo "<td style='text-align: center'>" . $row['hostName'] . "</td>";
+                            echo "<td style='text-align: center' >" . $row['hostName'] . "</td>";
                             echo "<td style='text-align: center'>" . $row['ipAddress'] . "</td>";
                             echo "<td style='text-align: center'>" . $row['macAddress'] . "</td>";
                             echo "<td style='text-align: center'>" . $row['scanTimestamp'] . "</td>";

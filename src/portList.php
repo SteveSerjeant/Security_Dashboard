@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/stylesheet.css" type="text/css">
-    <link rel="stylesheet" href="../css/dashboardNavbar.css" type="text/css">
+    <link rel="stylesheet" href="../css/forNavbar.css" type="text/css">
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -17,7 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
-<body class="portList">
+<body class="portlist">
 <header>
     <?php include 'header.php' ?>
 </header>
@@ -26,14 +26,16 @@
     <?php include 'navbar.php';?>
 
     </div
-    <td><a href='tempLandingPage.php'>Back</a></td>
+
+
+
 </nav>
 <?php
 
 $id = $_GET['id'];
 //echo "IP Address: " . $id . "<br><br>";
 
-$file= simplexml_load_file("C:\Users\sarge\source\scanResults.xml");
+$file= simplexml_load_file("C:\Users\sarge\source\scanResultsJanuary.xml");
 
 //echo "IP Address: " . $id . "<br><br>";
 
@@ -42,24 +44,16 @@ $file= simplexml_load_file("C:\Users\sarge\source\scanResults.xml");
 
 foreach ($file->host as $host)
 {
-//    $name = $host->hostnames->hostname['name'];
-//    echo $name."<br><br>";
+
 
     $addr = (string) ($host->address['addr']);
 
     if ($id == $addr) {
-        echo "IP Address: " . $addr."<br><br>";
-//        $name = $host->hostnames->hostname['name'];
-//        $port = $host->ports->port['portid'];
-//        $state = $host->ports->port->state['state'];
-//        $service = $host->ports->port->service['name'];
-//        echo "PortID: ".$port." State: ".$state." Service: ".$service."<br>";
-//        echo "Hostname: ".$name."<br>";
+        echo "<br><br>IP Address: " . $addr."<br><br>";
+
         foreach ($host->ports->port as $portid)
         {
-//            $port = $host->ports->port['portid'];
-//            $state = $host->ports->port->state['state'];
-//            $service = $host->ports->port->service['name'];
+
             $port = $portid['portid'];
             $protocol = $portid['protocol'];
 //            $state = $host->ports->port->state['state']; // shows just 1st state
@@ -79,85 +73,7 @@ foreach ($file->host as $host)
     }
 }
 
-//foreach ($file->host as $hostInfo){
-//    $timestamp = $file['startstr'];
-////    echo $timestamp . "<br>";
-//    $ip = $hostInfo->address['addr'];
-//    echo $ip . "<br>";
-//
-//    if ($file->address['addr'] = $id) {
-////        echo "IP: " . $id . "<br>";
-//        $name = $hostInfo->hostname['name'];
-//        echo $name;
-//    }
-//                foreach ($hostInfo->ports->port as $portid) {
-////        echo $portid['portid'] . " " . $portid->state['state'] . " " . $portid->service['name'] . "<br>";
-//        $timestamp = $file['startstr'];
-//        $ip = $file->address['addr'];
-//        $port = $portid['portid'];
-//        $state = $portid->state['state'];
-//        $service = $portid->service['name'];
-//
-//        echo "Port Number: " . $port . " State: " . $state . " Service: " . $service . "<br>";
-//
-//    }
-//                echo"<br>";
-//
-//}
 
-//if ($file->address['addr'] = $id){
-//    echo "IP: " . $id;
-//    $host = $file->hostname['name'];
-//    echo $host;
-////        foreach ($file->ports->port as $portid) {
-//////        echo $portid['portid'] . " " . $portid->state['state'] . " " . $portid->service['name'] . "<br>";
-////        $timestamp = $file['startstr'];
-////        $ip = $file->address['addr'];
-////        $port = $portid['portid'];
-////        $state = $portid->state['state'];
-////        $service = $portid->service['name'];
-////        echo "Port Number: " . $port . " State: " . $state . " Service: " . $service . "<br>";
-////
-////    }
-//
-//}
-//else {
-//    echo "Nothing Found.";
-//}
-
-
-//foreach ($file->host as $hostInfo) {
-//
-////    echo "MAC: " . $id . "<br>";
-//    $timestamp = $file['startstr'];
-//    echo $timestamp . "<br>";
-//    $ip = $hostInfo->address['addr'];
-//    echo $ip . "<br>";
-////
-////    if ($hostInfo = $id) {
-////        echo $timestamp . "<br>";
-////        echo $ip . "<br>";
-////    }
-////    else {
-////        echo "Nothing found!";
-////    }
-//
-//
-//
-//    foreach ($hostInfo->ports->port as $portid) {
-////        echo $portid['portid'] . " " . $portid->state['state'] . " " . $portid->service['name'] . "<br>";
-//        $timestamp = $hostInfo['startstr'];
-//        $ip = $hostInfo->address['addr'];
-//        $port = $portid['portid'];
-//        $state = $portid->state['state'];
-//        $service = $portid->service['name'];
-//        echo "Port Number: " . $port . " State: " . $state . " Service: " . $service . "<br>";
-//
-//    }
-//    echo "<br><br>";
-//
-//
-//}
 ?>
 
 

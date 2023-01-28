@@ -1,13 +1,22 @@
 #mainTitle {
-    text-align: center;
     color:#4a535b;
     font-family: Arial;
     font-size: xx-large;
-    background-color: orange;
-    line-height: 100px;
+    background-color: lightsalmon;
+    padding-top: 10px;
+    /*line-height: 75px;*/
+    /*height: 75px;*/
+    /*vertical-align: middle;*/
 
 }
-
-/*.headBackground {*/
-/*    background-color: orange;*/
+/*div {*/
+/*    height: 200px;*/
+/*    line-height: 200px;*/
 /*}*/
+
+/*#span {*/
+/*    display: inline-block;*/
+/*    vertical-align: middle;*/
+/*    line-height: 75px; !* <-- adjust this *!*/
+/*}*/
+
