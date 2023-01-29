@@ -19,7 +19,11 @@
 </head>
 <body class="portlist">
 <header>
-    <?php include 'header.php' ?>
+    <?php
+    include 'header.php';
+    include_once ("dbconn.php");
+
+    ?>
 </header>
 <nav>
     <div class=""wrapper">
@@ -33,44 +37,28 @@
 <?php
 
 $id = $_GET['id'];
-//echo "IP Address: " . $id . "<br><br>";
+echo "IP Address: " . $id . "<br><br>";
 
-$file= simplexml_load_file("C:\Users\sarge\source\scanResultsJanuary.xml");
+$stmt = $conn->prepare("CALL getPortInfo(?)");
+$stmt->bind_param('s' ,$id);
 
-//echo "IP Address: " . $id . "<br><br>";
+if (!$stmt->execute()){
 
-//$ip = $file->host->addr[$id];
-//echo $ip;
+    echo "ERROR: " . $stmt->error;
+}
 
-foreach ($file->host as $host)
-{
+else {
+    $result = $stmt->get_result();
 
-
-    $addr = (string) ($host->address['addr']);
-
-    if ($id == $addr) {
-        echo "<br><br>IP Address: " . $addr."<br><br>";
-
-        foreach ($host->ports->port as $portid)
-        {
-
-            $port = $portid['portid'];
-            $protocol = $portid['protocol'];
-//            $state = $host->ports->port->state['state']; // shows just 1st state
-            $state = $portid->state['state'];
-            $service = $portid->service['name'];
-//            echo "PortID: ".$port." State: ".$state." Service: ".$service."<br>";
-            echo "PortID: ".$port." State: ".$state." Service: ".$service."<br>";
-
-
-        }
-
+    while ($row = $result->fetch_assoc()){
+        echo "<tr style='text-align: center' >";
+        echo "<td style='text-align: center' >" . $row['portID'] . "</td>";
+        echo "<td style='text-align: center'>" . $row['state'] . "</td>";
+        echo "<td style='text-align: center'>" . $row['serviceName'] . "</td>";
     }
-
-    else{
-//        echo " Wrong IP: ".$addr."<br>";
-        echo "";
-    }
+    $stmt->close();
+    mysqli_close($conn);
+    echo "Display data";
 }
 
 

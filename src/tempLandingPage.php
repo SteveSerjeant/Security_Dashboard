@@ -50,38 +50,7 @@ if ($alert == "added") {echo "<div class=\"alert alert-success alert-dismissible
 
     </div>
 </nav>
-<!-- Modal -->
-<div class="modal fade" id="addNotesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
 
-            <form method="POST" id="save" action="addNotes.php">
-                <div class="modal-header">
-                    <h3 class="modal-title">Save Notes</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <div class="form-group">
-                            <label id="label" name="label">Notes for IP:</label>
-                            <input type="text" name="notes" id="notes" class="form-control" required="required"/>
-                        </div>
-
-                    </div>
-                </div>
-                <div style="clear: both"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="btnClose" data-bs-dismiss="modal">Close</button>
-                    <button name="save" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
-
-                </div>
-            </form>
-
-
-        </div>
-    </div>
-</div>
-</div>
 
 
 <article>
