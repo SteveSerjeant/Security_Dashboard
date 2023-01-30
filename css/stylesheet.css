@@ -161,10 +161,6 @@ body
 .outputTable tr td:last-child {
     border-right-width:2px; }
 
-.portList {
-    background-color: lightpink;
-}
-
 .forPopup {
     margin-top: 10%;
 }

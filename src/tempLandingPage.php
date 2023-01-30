@@ -8,8 +8,8 @@ include_once ("dbconn.php");
     <title>Home Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/stylesheet.css" type="text/css">
 
+    <link rel="stylesheet" href="../css/stylesheet.css" type="text/css">
     <link rel="stylesheet" href="../css/forNavbar.css" type="text/css">
 
     <!--    /*for alert messages*/-->
@@ -51,13 +51,11 @@ if ($alert == "added") {echo "<div class=\"alert alert-success alert-dismissible
     </div>
 </nav>
 
-
-
 <article>
 
     <section>
 
-        <div class = "wrapper3" id="hoverPopup">
+        <div class = "wrapper3">
             <div class="container-fluid">
 
                 <div class = "row3">
@@ -70,7 +68,6 @@ if ($alert == "added") {echo "<div class=\"alert alert-success alert-dismissible
                             <col span="1" style="width: 20%">
                             <col span="1" style="width: 5%">
                             <col span="1" style="width: 5%">
-                            <!--                            <col span="1" style="width: 35%">-->
                         </colgroup>
 
                         <tr bgcolor="#afeeee" style="text-align: center">
@@ -81,7 +78,6 @@ if ($alert == "added") {echo "<div class=\"alert alert-success alert-dismissible
                             <th style='text-align: center'>Notes</th>
                             <th style='text-align: center'>Add Notes</th>
                             <th style='text-align: center'>Port List</th>
-                            <!--                            <th style='text-align: center'>Notes</th>-->
                         </tr>
 
 
@@ -91,7 +87,6 @@ if ($alert == "added") {echo "<div class=\"alert alert-success alert-dismissible
                         $stmt = $conn->prepare($sql);
                         $stmt->execute();
                         $result = $stmt->get_result();
-
 
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr style='text-align: center' >";
