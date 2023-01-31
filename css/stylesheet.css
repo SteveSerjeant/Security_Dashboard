@@ -129,14 +129,17 @@ body
 }
 
 .wrapper3 {
-    background-color: #20c997;
-    border: 1px solid;
+    background-color: #f8f9fa;
+
 }
 
 .outputTable {
     border-collapse: collapse;
     line-height: normal;
     padding-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
   }
 
 .outputTable th {
@@ -148,8 +151,7 @@ body
 }
 
 .outputTable td {
-    /*padding:2px 4px; border-style:solid; border-color: red; border-width:0 1px 1px 0;*/
-    border-style:solid; border-color: darkblue; border-width: 0 1px 1px 0;
+    border-style:solid; border-color: darkblue; border-width: 0 2px 1px 0;
 }
 
 .outputTable tr:first-child {
