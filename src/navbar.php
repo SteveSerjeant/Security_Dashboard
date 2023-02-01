@@ -17,11 +17,11 @@
         <nav >
             <div id="menu">
                 <ul>
-                    <li><a href="" style="background-color: red">Scan</a> </li>
+                    <li><a href="performScan.php" style="background-color: red">Scan</a> </li>
                     <li><a href="" title="Hover over column headers below for further info">Hover</a> </li>
                     <!-- Trigger/Open The Modal -->
                     <button id="myBtn">Hover Info</button>
-                    <li><a href="tempLandingPage.php">Home</a> </li>
+                    <li><a href="homePage.php">Home</a> </li>
                     <li><a href="">Profile</a></li>
                     <li><a href="">Settings</a></li>
                     <li><a href="logoff.php">Log Out</a></li>
