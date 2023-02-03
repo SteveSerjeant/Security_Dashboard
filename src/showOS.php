@@ -20,7 +20,13 @@ foreach ($file->host as $host) {
     $acc = $host->os->osmatch['accuracy'];
     echo $ip . " " . $os . " " . $acc . "<br>";
 
+    $stmt = $conn->prepare("CALL insertOS(?,?,?,?)");
+    $stmt->bind_param('sssi', $ip, $timestamp, $os, $acc);
+    $stmt->execute();
+
 }
+$stmt->close();
+$conn->close();
 
 ?>
 

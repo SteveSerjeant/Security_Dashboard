@@ -12,7 +12,6 @@
         <div id="logo">
             <img src="../img/logo2.png" />
         </div>
-<!--                    <img id="logo" src="../img/logo2.png" />-->
 
         <nav >
             <div id="menu">
@@ -33,11 +32,11 @@
 
         </nav>
         <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
-        </div>
-    </div>
+<!--        <div class="modal-content">-->
+<!--            <span class="close">&times;</span>-->
+<!--            <p>Some text in the Modal..</p>-->
+<!--        </div>-->
+<!--    </div>-->
     
 
 </header>

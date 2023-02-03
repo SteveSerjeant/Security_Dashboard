@@ -29,20 +29,20 @@ header {
     float: right;
     width: 70%;
     height: 60px;
-    margin: none;
+    /*margin: none;*/
 }
 
 #menu ul{
     text-align: center;
     float: right;
-    margin: none;
+    /*margin: none;*/
     background: #4a535b;
 }
 
 #menu li{
     display: inline-block;
-    padding: none;
-    margin: none;
+    /*padding: none;*/
+    /*margin: none;*/
 }
 
 #menu li a, #menu li span{
@@ -81,29 +81,7 @@ header {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
 
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 
 
