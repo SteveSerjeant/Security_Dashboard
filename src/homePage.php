@@ -84,6 +84,7 @@ if ($alert == "added") {echo "<div class=\"alert alert-success alert-dismissible
                         <?php
 
                         $sql = 'CALL getDevices()';
+
                         $stmt = $conn->prepare($sql);
                         $stmt->execute();
                         $result = $stmt->get_result();
