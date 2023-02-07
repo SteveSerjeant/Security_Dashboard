@@ -45,7 +45,7 @@ if ($alert == "added") {echo "<div class=\"alert alert-success alert-dismissible
 
 ?>
 <nav>
-    <div class=""wrapper">
+    <div class="wrapper">
     <?php include 'navbar.php'?>
 
     </div>
@@ -59,13 +59,13 @@ if ($alert == "added") {echo "<div class=\"alert alert-success alert-dismissible
             <div class="container-fluid">
 
                 <div class = "row3">
-                    <table class = "outputTable" id="output" style="width: 80%; height: 20%; text-align: center">
+                    <table class = "outputTable" id="output" style="width: 85%; height: 20%; text-align: center">
                         <colgroup>
+                            <col span="1" style="width: 8%">
+                            <col span="1" style="width: 8%">
                             <col span="1" style="width: 10%">
                             <col span="1" style="width: 10%">
                             <col span="1" style="width: 10%">
-                            <col span="1" style="width: 10%">
-                            <col span="1" style="width: 20%">
                             <col span="1" style="width: 5%">
                             <col span="1" style="width: 5%">
                         </colgroup>

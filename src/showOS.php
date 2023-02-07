@@ -48,63 +48,46 @@
             <div class="container-fluid">
 
                 <div class = "row3">
-                    <table class = "outputTable" id="output" style="width: 50%; height: 20%; text-align: center">
-                        <?php $id = $_GET['id'];?>
-                        <colgroup>
-                            <col span="1" style="width: 10%">
 
+                    <table class = "outputTable" id="output" style="width: 60%; height: 20%; text-align: center">
+                        <colgroup>
+                            <col span="1" style="width: 5%">
+                            <col span="1" style="width: 5%">
+                            <col span="1" style="width: 10%">
+                            <col span="1" style="width: 5%">
+                            <col span="1" style="width: 5%">
                         </colgroup>
+
+
+
                         <tr bgcolor="#afeeee" style="text-align: center">
                             <th style='text-align: center'>IP Address</th>
-                        </tr>
-                        <tr style='text-align: center'>
-                            <td style='text-align: center' ><?php echo "$id"?></td>
-                        </tr>
-
-
-                    </table>
-                    <table class = "outputTable" id="output" style="width: 50%; height: 20%; text-align: center">
-                        <colgroup>
-                            <col span="1" style="width: 5%">
-                            <col span="1" style="width: 5%">
-                            <col span="1" style="width: 5%">
-                            <col span="1" style="width: 5%">
-                        </colgroup>
-
-
-
-                        <tr bgcolor="#afeeee" style="text-align: center">
-                            <th style='text-align: center'>Port ID</th>
-                            <th style='text-align: center'>State</th>
-                            <th style='text-align: center'>Service</th>
-                            <th style='text-align: center'>Further Info</th>
+                            <th style='text-align: center'>Scan Date</th>
+                            <th style='text-align: center'>Operating System (OS)</th>
+                            <th style='text-align: center'>% Accuracy</th>
+                            <th style='text-align: center'>More Info</th>
                         </tr>
 
 
                         <?php
 
-                        $id = $_GET['id'];
 
-                        $stmt = $conn->prepare("CALL getPortInfo(?)");
-                        $stmt->bind_param('s' ,$id);
 
-                        if (!$stmt->execute()){
+                        $sql = 'CALL getOSInfo';
 
-                            echo "ERROR: " . $stmt->error;
-                        }
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
 
-                        else {
-                            $result = $stmt->get_result();
 
-                            while ($row = $result->fetch_assoc()){
-                                echo "<tr style='text-align: center' >";
-                                echo "<td style='text-align: center' >" . $row['portID'] . "</td>";
-                                echo "<td style='text-align: center'>" . $row['state'] . "</td>";
-                                echo "<td style='text-align: center'>" . $row['serviceName'] . "</td>";
-                                echo "<td><a href='moreInfo.php?id=$row[ipAddress]'>Further Info</a>";
-                                echo "</tr>";
-                            }
-
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr style='text-align: center' >";
+                            echo "<td style='text-align: center' >" . $row['ipAddress'] . "</td>";
+                            echo "<td style='text-align: center'>" . $row['scanTimestamp'] . "</td>";
+                            echo "<td style='text-align: center'>" . $row['osType'] . "</td>";
+                            echo "<td style='text-align: center'>" . $row['accuracy'] . "</td>";
+                            echo "<td><a href='moreInfo.php?id=$row[ipAddress]'>More Info</a>";
+                            echo "</tr>";
                         }
                         $stmt->close();
                         mysqli_close($conn);
