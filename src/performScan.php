@@ -1,12 +1,44 @@
 <?php
+include ("dbconn.php");
 
-//$handle = popen('start /B C:\Users\sarge\source\scan230131.bat >nul 2.&1', 'r');
-//pclose($handle);
-//header("Location: inProgress.php");
+//$forDelete = "C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultDevices.xml";
+//$forDelete1 = "C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultOS.xml";
+//
+//
+//
+//unlink ($forDelete);
+//unlink ($forDelete1);
 
-echo "in progress"."<br>";
-//exec('c:\WINDOWS\system32\cmd.exe /c START C:\Program Files\VideoLAN\VLC\vlc.bat');
+//$sql = ('UPDATE Marker SET marker = 0 WHERE ID=1');
+//$stmt = $conn->prepare($sql);
+//$stmt->prepare($sql);
+//$stmt->execute();
+
 
 exec('c:\WINDOWS\system32\cmd.exe /B /c START C:\Users\sarge\source\scanFeb.bat');
+
+$file = "C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultOS.xml";
+
+function filesExist (){
+
+    if (file_exists($file)){
+    header('Location: saveScans.php');
+    }
+    else {
+        echo "File Does Not Exists";
+        sleep(60);
+        filesExist();
+    }
+}
+
+filesExist();
+
+
+//
+//sleep(1800);
+//
+//
+//
+//header('Location: homePage.php');
 
 //echo "finished";
