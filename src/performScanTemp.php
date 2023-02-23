@@ -3,7 +3,7 @@
 <html lang = "en" xmlns="http://www.w3.org/1999/html">
 
 <head>
-    <title>OS List</title>
+    <title>Performing Scan</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -55,55 +55,76 @@
     </p>
 </h1>
         <?php
-        //load xml file
-//        $file = simplexml_load_file("C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultDevices.xml");
-        $fileOS = simplexml_load_file("C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultOS.xml");
 
-//        $timestamp = $file['startstr'];
-        //echo "Devices: " . $timestamp . "<br>";
-
-        $timestampOS = $fileOS['startstr'];
-        //echo "OS: " . $timestampOS . "<br>";
-
-//        $stmt = $conn->prepare("CALL insertTimestamp(?)");
-//        $stmt->bind_param('s', $timestamp);
-//        $stmt->execute();
-//        $stmt->close();
-
-        $stmt1 = $conn->prepare("CALL insertTimestampOS(?)");
-        $stmt1->bind_param('s', $timestampOS);
-        $stmt1->execute();
-        $stmt1->close();
-
-        foreach ($fileOS->host as $hostOS){
-            $ipOS = $hostOS->address['addr'];
-//    echo $ipOS . "<br>";
-            echo $timestampOS . "<br>";
-            $osType = $hostOS->os->osmatch['name'] ? : $os = "Not Found";
-//    echo $osType . "<br>";
-            $acc = $os = $hostOS->os->osmatch['accuracy'] ? : $acc = "Not Found";
-//    echo $acc . "<br><br>";
-
-            $stmt4 = $conn->prepare("CALL insertOSLog(?,?,?,?)");
-            $stmt4->bind_param('sssi', $ipOS, $timestampOS, $osType, $acc);
-            $stmt4->execute();
-
-            $stmt5 = $conn->prepare("CALL insertOS(?,?,?,?)");
-            $stmt5->bind_param('sssi', $ipOS, $timestampOS, $osType, $acc);
-            $stmt5->execute();
+        $forDelete = "C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultDevices.xml";
+        $forDelete1 = "C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultOS.xml";
 
 
 
-        }
+        unlink ($forDelete);
+        unlink ($forDelete1);
 
-        $stmt4->close();
-        $stmt5->close();
+        $sql = ('UPDATE Marker SET marker = 0 WHERE ID=1');
+        $stmt = $conn->prepare($sql);
+        $stmt->prepare($sql);
+        $stmt->execute();
+
+
+//        perform scan
+//        exec('c:\WINDOWS\system32\cmd.exe /B /c START C:\Users\sarge\source\scanFeb.bat');
+        exec('C:\Users\sarge\source\scanFeb.bat');
+
+        echo '<script>alert("Scan Finished")</script>script>';
+
+//        sleep(1200);
+
+//        function to check if files exists
+//        $file = "C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultOS.xml";
+//        function filesExist (){
+//
+//            if (file_exists($file)){
+//        header('Location: saveScans.php');
+//            }
+//            else {
+//                echo "File Does Not Exists";
+//                sleep(60);
+//                filesExist();
+//            }
+//        }
+//
+//        filesExist();
+
+        //        function to check if files contains text
+//                $file = "C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultOS.xml";
+
+
+                function filesExist (){
+
+//                    if (file_exists($file)){
+////                header('Location: saveScans.php');
+//                    }
+//                    else {
+//                        echo "File Does Not Exists";
+//                        sleep(60);
+//                        filesExist();
+//                    }
+//                }
+            if (strpos(file_get_contents("C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultOS.xml"),"</nmaprun>")){
+                header('Location: saveScans.php');
+            }
+            else {
+                sleep(60);
+                filesExist();
+
+            }
+                }
+
+                filesExist();
 
 
 
 
 
-        $conn->close();
 
 
         ?>

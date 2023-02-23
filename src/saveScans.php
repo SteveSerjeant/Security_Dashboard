@@ -9,7 +9,7 @@ $fileOS = simplexml_load_file("C:\Program Files\Ampps\www\Security_Dashboard\src
 $timestamp = $file['startstr'];
 //echo "Devices: " . $timestamp . "<br>";
 
-$timestampOS = $fileOS['startstr'];
+//$timestampOS = $fileOS['startstr'];
 //echo "OS: " . $timestampOS . "<br>";
 
 $stmt = $conn->prepare("CALL insertTimestamp(?)");
@@ -17,10 +17,10 @@ $stmt->bind_param('s', $timestamp);
 $stmt->execute();
 $stmt->close();
 
-$stmt1 = $conn->prepare("CALL insertTimestampOS(?)");
-$stmt1->bind_param('s', $timestampOS);
-$stmt1->execute();
-$stmt1->close();
+//$stmt1 = $conn->prepare("CALL insertTimestampOS(?)");
+//$stmt1->bind_param('s', $timestampOS);
+//$stmt1->execute();
+//$stmt1->close();
 
 foreach ($file->host as $host){
     $timestamp = $file['startstr'];
@@ -58,11 +58,11 @@ foreach ($fileOS->host as $hostOS){
 //    echo $acc . "<br><br>";
 
     $stmt4 = $conn->prepare("CALL insertOSLog(?,?,?,?)");
-    $stmt4->bind_param('sssi', $ipOS, $timestampOS, $osType, $acc);
+    $stmt4->bind_param('sssi', $ipOS, $timestamp, $osType, $acc);
     $stmt4->execute();
 
     $stmt5 = $conn->prepare("CALL insertOS(?,?,?,?)");
-    $stmt5->bind_param('sssi', $ipOS, $timestampOS, $osType, $acc);
+    $stmt5->bind_param('sssi', $ipOS, $timestamp, $osType, $acc);
     $stmt5->execute();
 
 
