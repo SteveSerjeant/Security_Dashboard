@@ -41,12 +41,40 @@ foreach ($file->host as $host){
 
 }
 
-
-
-
 $stmt2->close();
 $stmt3->close();
 
+
+// for port info
+foreach ($file->host as $hostPort) {
+
+    $addr = (string) ($hostPort->address['addr']);
+//    echo $addr . "<br>";
+
+    foreach ($hostPort->ports->port as $portid)
+    {
+
+        $port = (string) ($portid['portid']);
+//        echo $port . " ";
+        $protocol = $portid['protocol'];
+//            $state = $host->ports->port->state['state']; // shows just 1st state
+        $state = $portid->state['state'];
+        $service = $portid->service['name'];
+//        echo "IP: " . $addr ." Timestamp: " . $timestamp . " PortID: ".$port." State: ".$state." Service: ".$service."<br>";
+
+        $stmt6 = $conn->prepare("INSERT INTO portInfo (ipAddress, portID, state, serviceName, timestamp ) VALUES (?,?,?,?,?)");
+        $stmt6->bind_param("sssss",  $addr,$port, $state, $service, $timestamp);
+        $stmt6->execute();
+
+    }
+
+    $stmt6->close();
+
+}
+
+
+
+$stmt->close();
 
 foreach ($fileOS->host as $hostOS){
     $ipOS = $hostOS->address['addr'];
@@ -65,13 +93,10 @@ foreach ($fileOS->host as $hostOS){
     $stmt5->bind_param('sssi', $ipOS, $timestamp, $osType, $acc);
     $stmt5->execute();
 
-
-
 }
 
 $stmt4->close();
 $stmt5->close();
-
 
 $conn->close();
 
