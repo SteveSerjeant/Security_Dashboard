@@ -51,7 +51,7 @@ if (!isset($_POST['username'], $_POST['password'], $_POST['confirmPassword']) ){
                 }
 
                     $sql = "INSERT INTO users(username, password) VALUES (?,?)";
-                    var_dump($sql);
+
                     if ($stmt1 = mysqli_prepare($conn, $sql)) {
 
 

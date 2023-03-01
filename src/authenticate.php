@@ -39,6 +39,7 @@ if ( !isset($_POST['username'], $_POST['password']) ) {
         $stmt->fetch();
 
 
+
         if (password_verify($_POST["password"], $password)) {
             // Verification success! User has logged-in!
             session_regenerate_id();

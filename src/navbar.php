@@ -24,7 +24,7 @@
                     <!-- Trigger/Open The Modal -->
                     <button id="myBtn">Hover Info</button>
                     <li><a href="homePage.php">Home</a> </li>
-                    <li><a href="">Profile</a></li>
+                    <li><a href="profile.php">Password</a></li>
                     <li><a href="">Settings</a></li>
                     <li><a href="logoff.php">Log Out</a></li>
 
