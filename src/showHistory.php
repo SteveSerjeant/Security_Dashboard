@@ -50,13 +50,16 @@
 
                 <div class = "row3">
                     <table class = "outputTable2" id="output" style="width: 40%; height: 15%; text-align: center">
+
                         <colgroup>
                             <col span="1" style="width: 10%">
 
                         </colgroup>
+                        </colgroup>
                         <tr bgcolor="#afeeee" style="text-align: center">
-                            <th style='text-align: center'>Device Scanning Dates</th>
+                            <th style='text-align: center'>Scan Dates</th>
                         </tr>
+                    </table>
 
                 <div class = "row3">
 
@@ -93,56 +96,56 @@
 
                     </table>
 
-                </div>
-
-                        <div class = "row3">
-                            <table class = "outputTable3" id="output" style="width: 40%; height: 15%; text-align: center; margin-top: 50px">
-                                <colgroup>
-                                    <col span="1" style="width: 10%">
-
-                                </colgroup>
-                                <tr bgcolor="#afeeee" style="text-align: center">
-                                    <th style='text-align: center'>Operating System Scanning Dates</th>
-                                </tr>
-
-                                <div class = "row3">
-
-                                    <table class = "outputTable3" id="output" style="width: 40%; height: 20%; text-align: center">
-                                        <colgroup>
-                                            <col span="1" style="width: 5%">
-                                            <col span="1" style="width: 5%">
-                                        </colgroup>
-
-                                        <tr bgcolor="#afeeee" style="text-align: center">
-                                            <th style='text-align: center'>Scan Date</th>
-                                            <th style='text-align: center'>Scan Results</th>
-                                        </tr>
-
-                                        <?php
-
-                                        $sql = 'CALL getScandatesOS()';
-
-                                        $stmt1 = $conn->prepare($sql);
-                                        $stmt1->execute();
-                                        $result = $stmt1->get_result();
-
-
-                                        while ($row = $result->fetch_assoc()) {
-                                            echo "<tr style='text-align: center' >";
-                                            echo "<td style='text-align: center' >" . $row['scanTimestamp'] . "</td>";
-                                            echo "<td><a href='scanResults.php?id=$row[scanTimestamp]'>More Info</a>";
-                                            echo "</tr>";
-                                        }
-                                        $stmt1->close();
-                                        mysqli_close($conn);
-
-                                        ?>
-
-                                    </table>
-
-                                </div>
-
-            </div>
+<!--                </div>-->
+<!---->
+<!--                        <div class = "row3">-->
+<!--                            <table class = "outputTable3" id="output" style="width: 40%; height: 15%; text-align: center; margin-top: 50px">-->
+<!--                                <colgroup>-->
+<!--                                    <col span="1" style="width: 10%">-->
+<!---->
+<!--                                </colgroup>-->
+<!--                                <tr bgcolor="#afeeee" style="text-align: center">-->
+<!--                                    <th style='text-align: center'>Operating System Scanning Dates</th>-->
+<!--                                </tr>-->
+<!---->
+<!--                                <div class = "row3">-->
+<!---->
+<!--                                    <table class = "outputTable3" id="output" style="width: 40%; height: 20%; text-align: center">-->
+<!--                                        <colgroup>-->
+<!--                                            <col span="1" style="width: 5%">-->
+<!--                                            <col span="1" style="width: 5%">-->
+<!--                                        </colgroup>-->
+<!---->
+<!--                                        <tr bgcolor="#afeeee" style="text-align: center">-->
+<!--                                            <th style='text-align: center'>Scan Date</th>-->
+<!--                                            <th style='text-align: center'>Scan Results</th>-->
+<!--                                        </tr>-->
+<!---->
+<!--                                        --><?php
+//
+//                                        $sql = 'CALL getScandatesOS()';
+//
+//                                        $stmt1 = $conn->prepare($sql);
+//                                        $stmt1->execute();
+//                                        $result = $stmt1->get_result();
+//
+//
+//                                        while ($row = $result->fetch_assoc()) {
+//                                            echo "<tr style='text-align: center' >";
+//                                            echo "<td style='text-align: center' >" . $row['scanTimestamp'] . "</td>";
+//                                            echo "<td><a href='scanResults.php?id=$row[scanTimestamp]'>More Info</a>";
+//                                            echo "</tr>";
+//                                        }
+//                                        $stmt1->close();
+//                                        mysqli_close($conn);
+//
+//                                        ?>
+<!---->
+<!--                                    </table>-->
+<!---->
+<!--                                </div>-->
+<!---->
+<!--            </div>-->
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
