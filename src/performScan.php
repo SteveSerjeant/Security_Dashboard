@@ -15,8 +15,8 @@ include ("dbconn.php");
 //$stmt->execute();
 
 
+//exec('c:\WINDOWS\system32\cmd.exe /B /c START C:\Users\sarge\source\scanFeb.bat');
 exec('c:\WINDOWS\system32\cmd.exe /B /c START C:\Users\sarge\source\scanFeb.bat');
-
 $file = "C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultOS.xml";
 
 function filesExist (){

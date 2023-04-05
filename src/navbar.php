@@ -17,7 +17,6 @@
             <div id="menu">
                 <ul>
                     <li><a href="performScanTemp.php" style="background-color: red">Scan</a> </li>
-                    <li><a href="saveScans.php" style="background-color: red">Save</a> </li>
                     <li><a href="" title="Hover over column headers below for further info">Hover</a> </li>
                     <li><a href="showOS.php">OS</a></li>
                     <li><a href="showHistory.php">History</a></li>

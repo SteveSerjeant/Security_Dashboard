@@ -1,4 +1,7 @@
+<?php
+session_start();
 
+?>
 <!DOCTYPE html>
 <html lang = "en" xmlns="http://www.w3.org/1999/html">
 
@@ -13,8 +16,6 @@
     <!--    /*for alert messages*/-->
     <link rel="stylesheet" href="../css/forAlerts.css" type="text/css">
 
-    <!-- Bootstrap CSS -->
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
@@ -71,44 +72,15 @@
 
 
 //        perform scan
-//        exec('c:\WINDOWS\system32\cmd.exe /B /c START C:\Users\sarge\source\scanFeb.bat');
+//        exec('c:\WINDOWS\system32\cmd.exe /B /c START C:\Users\sarge\source\vulnersScan.bat');
         exec('C:\Users\sarge\source\scanFeb.bat');
 
         echo '<script>alert("Scan Finished")</script>script>';
 
-//        sleep(1200);
-
-//        function to check if files exists
-//        $file = "C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultOS.xml";
-//        function filesExist (){
-//
-//            if (file_exists($file)){
-//        header('Location: saveScans.php');
-//            }
-//            else {
-//                echo "File Does Not Exists";
-//                sleep(60);
-//                filesExist();
-//            }
-//        }
-//
-//        filesExist();
-
-        //        function to check if files contains text
-//                $file = "C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultOS.xml";
 
 
                 function filesExist (){
-
-//                    if (file_exists($file)){
-////                header('Location: saveScans.php');
-//                    }
-//                    else {
-//                        echo "File Does Not Exists";
-//                        sleep(60);
-//                        filesExist();
-//                    }
-//                }
+              }
             if (strpos(file_get_contents("C:\Program Files\Ampps\www\Security_Dashboard\src\scanResultOS.xml"),"</nmaprun>")){
                 header('Location: saveScans.php');
             }
@@ -117,7 +89,7 @@
                 filesExist();
 
             }
-                }
+                
 
                 filesExist();
 
