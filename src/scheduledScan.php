@@ -10,10 +10,10 @@ $forDelete1 = "C:\Program Files\Ampps\www\Security_Dashboard\src\scheduledScanOS
 unlink ($forDelete);
 unlink ($forDelete1);
 
-$sql = ('UPDATE Marker SET marker = 0 WHERE ID=1');
-$stmt = $conn->prepare($sql);
-$stmt->prepare($sql);
-$stmt->execute();
+//$sql = ('UPDATE Marker SET marker = 0 WHERE ID=1');
+//$stmt = $conn->prepare($sql);
+//$stmt->prepare($sql);
+//$stmt->execute();
 
 exec('C:\Users\sarge\source\scheduledScan.bat');
 
@@ -79,9 +79,38 @@ if (strpos(file_get_contents("C:\Program Files\Ampps\www\Security_Dashboard\src\
 
         }
 
-        $stmt6->close();
+
 
     }
+    $stmt6->close();
+
+    foreach ($fileOS->host as $hostOS){
+        $ipOS = $hostOS->address['addr'];
+//    echo $ipOS . "<br>";
+//        echo $timestampOS . "<br>";
+        $osType = $hostOS->os->osmatch['name'] ? : $os = "Not Found";
+//    echo $osType . "<br>";
+        $acc = $os = $hostOS->os->osmatch['accuracy'] ? : $acc = "Not Found";
+//    echo $acc . "<br><br>";
+
+        $stmt4 = $conn->prepare("CALL insertOSLog(?,?,?,?)");
+        $stmt4->bind_param('sssi', $ipOS, $timestamp, $osType, $acc);
+        $stmt4->execute();
+
+        $stmt5 = $conn->prepare("CALL insertOS(?,?,?,?)");
+        $stmt5->bind_param('sssi', $ipOS, $timestamp, $osType, $acc);
+        $stmt5->execute();
+
+    }
+
+    $stmt4->close();
+    $stmt5->close();
+
+
+
+    $conn->close();
+
+
 }
 
 
