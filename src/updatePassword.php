@@ -11,7 +11,7 @@ $id = $_SESSION['id'];
 
 //password and check passwords
 if (strlen(trim($_POST["password"])) < 10){
-    header('Location: profile.php?err=' .base64_encode("length"));
+    header('Location: changePassword.php?err=' .base64_encode("length"));
 }
 else {
     $password = trim($_POST["password"]);
@@ -20,12 +20,12 @@ else {
 }
 
 if (strlen(trim($_POST["confirmPassword"])) < 10){
-    header('Location: profile.php?err=' .base64_encode("lengthTwo"));
+    header('Location: changePassword.php?err=' .base64_encode("lengthTwo"));
 }
 else {
     $confirmPassword = trim($_POST["confirmPassword"]);
     if ($password != $confirmPassword) {
-        header('Location: profile.php?err=' . base64_encode("match"));
+        header('Location: changePassword.php?err=' . base64_encode("match"));
 
     } else {
 

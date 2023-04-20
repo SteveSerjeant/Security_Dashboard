@@ -144,6 +144,29 @@ body
 
 .outputTable th {
     border-style: solid; border-width: 2px;
+    position: relative;
+    z-index: 37;
+}
+
+.moreInfo:hover span.tooltip{
+    display:block;
+}
+
+
+.tooltip{
+    display:none;
+    position:absolute;
+    z-index:100;
+    border:1px;
+    background-color:#eee;
+    border-style:solid;
+    border-width:1px;
+    border-color:blue;
+    border-radius: 6px;
+    padding:3px;
+    color:blue;
+    top:20px;
+    left:20px;
 }
 
 .outputTable tr {

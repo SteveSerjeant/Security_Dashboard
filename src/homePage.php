@@ -30,10 +30,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <!--     Bootstrap CSS-->
 <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
+    
 </head>
 <body>
+<!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+<!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+
 <header>
 <?php include 'header.php' ?>
 </header>
@@ -73,13 +76,20 @@ if ($alert == "updated") {echo "<div class=\"alert alert-success alert-dismissib
                         </colgroup>
 
                         <tr bgcolor="#afeeee" style="text-align: center">
-                            <th style='text-align: center'>Host Name</th>
-                            <th style='text-align: center'>IP Address</th>
-                            <th style='text-align: center'>MAC Address</th>
-                            <th style='text-align: center'>When Added </th>
-                            <th style='text-align: center'>Notes</th>
-                            <th style='text-align: center'>Add Notes</th>
-                            <th style='text-align: center'>Port List</th>
+                            <th class="moreInfo" style='text-align: center'>Host Name
+                            <span class="tooltip">This is the device hostname, found in the about your PC section</span></th>
+                            <th class="moreInfo" style='text-align: center'>IP Address
+                            <span class="tooltip">This is the unique internal "address" for this device on this network</span></th>
+                            <th  class="moreInfo" style='text-align: center'>MAC Address
+                                <span class="tooltip">This is a unique identifier for this device</span></th>
+                            <th class="moreInfo" style='text-align: center'>When Added
+                            <span class="tooltip">This is the date when this device was found by scanning and added to the database</span></th>
+                            <th class="moreInfo" style='text-align: center'>Notes
+                            <span class="tooltip">User added notes about the device</span></th>
+                            <th class="moreInfo" style='text-align: center'>Add Notes
+                            <span class="tooltip">Clicking on the link gives the user the option to add the notes</span></th>
+                            <th class="moreInfo" style='text-align: center'>Port List
+                            <span class="tooltip">Click on the link to display port and services running for each device on the network</span></th>
                         </tr>
 
 
